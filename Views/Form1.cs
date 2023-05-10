@@ -4,6 +4,8 @@ using System.IO;
 using static System.Net.Mime.MediaTypeNames;
 using System.Collections;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Diagnostics;
+using System.Reflection.PortableExecutable;
 
 namespace Qu_Te
 {
@@ -23,8 +25,30 @@ namespace Qu_Te
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.ShowDialog();
-            // open the file
-         
+
+            var filePath = openFileDialog1.FileName;
+            
+            List<string> files = new List<string>();
+            string fileInfo = "";
+
+            StreamReader reader = new StreamReader(filePath);
+            while ((fileInfo = reader.ReadLine()) != null)
+            {
+                files.Add(fileInfo);
+            }
+
+            try
+            {
+                txtServerName.AppendText(files[0]);
+                txtDatabaseName.AppendText(files[1]);
+                txtUsername.AppendText(files[2]);
+                txtPassword.AppendText(files[3]);
+                txtParameters.AppendText(files[4]); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
