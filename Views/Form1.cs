@@ -1,6 +1,9 @@
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 using static System.Net.Mime.MediaTypeNames;
+using System.Collections;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Qu_Te
 {
@@ -21,21 +24,23 @@ namespace Qu_Te
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.ShowDialog();
             // open the file
+         
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            // Will purge the default values on event. 
             try
             {
                 foreach (var c in this.Controls)
                 {
-                    if (c is TextBox)
+                    if (c is System.Windows.Forms.TextBox)
                     {
-                        ((TextBox)c).Text = String.Empty;
+                        ((System.Windows.Forms.TextBox)c).Text = String.Empty;
                     }
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -45,15 +50,15 @@ namespace Qu_Te
         {
             try
             {
-                TextWriter txt = new StreamWriter("D:\\qu_te.txt");
-                txt.WriteLine(txtServerName.Text);
-                txt.WriteLine(txtDatabaseName.Text);
-                txt.WriteLine(txtUsername.Text);
-                txt.WriteLine(txtPassword.Text);
-                txt.WriteLine(txtParameters.Text);
+                TextWriter txt = new StreamWriter("D:\\qu_te-default.txt");
+                txt.WriteLine("Server Name: " + txtServerName.Text);
+                txt.WriteLine("Database Name: " + txtDatabaseName.Text);
+                txt.WriteLine("Username: " + txtUsername.Text);
+                txt.WriteLine("Password: " + txtPassword.Text);
+                txt.WriteLine("Parameters " + txtParameters.Text);
                 txt.Close();
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -72,11 +77,11 @@ namespace Qu_Te
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     System.IO.StreamWriter file = new System.IO.StreamWriter(saveFileDialog1.FileName.ToString() + ".txt");
-                    file.WriteLine(txtServerName.Text);
-                    file.WriteLine(txtDatabaseName.Text);
-                    file.WriteLine(txtUsername.Text);
-                    file.WriteLine(txtPassword.Text);
-                    file.WriteLine(txtParameters.Text);
+                    file.WriteLine("Server Name: " + txtServerName.Text);
+                    file.WriteLine("Database Name: " + txtDatabaseName.Text);
+                    file.WriteLine("Username: " + txtUsername.Text);
+                    file.WriteLine("Password: " + txtPassword.Text);
+                    file.WriteLine("Parameters " + txtParameters.Text);
                     file.Close();
                 }
             }

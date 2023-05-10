@@ -153,6 +153,7 @@
             txtServerName.PlaceholderText = "My Server Name";
             txtServerName.Size = new Size(201, 23);
             txtServerName.TabIndex = 1;
+            txtServerName.Text = "Default Server";
             // 
             // txtDatabaseName
             // 
@@ -163,6 +164,7 @@
             txtDatabaseName.PlaceholderText = "My Database Name";
             txtDatabaseName.Size = new Size(201, 23);
             txtDatabaseName.TabIndex = 2;
+            txtDatabaseName.Text = "Default Database";
             // 
             // txtUsername
             // 
@@ -173,6 +175,7 @@
             txtUsername.PlaceholderText = "My Username";
             txtUsername.Size = new Size(201, 23);
             txtUsername.TabIndex = 3;
+            txtUsername.Text = "Default User";
             // 
             // txtPassword
             // 
@@ -183,6 +186,7 @@
             txtPassword.PlaceholderText = "My Password";
             txtPassword.Size = new Size(201, 23);
             txtPassword.TabIndex = 4;
+            txtPassword.Text = "Default Pass";
             // 
             // txtParameters
             // 
@@ -194,6 +198,7 @@
             txtParameters.PlaceholderText = "Parameters:";
             txtParameters.Size = new Size(208, 167);
             txtParameters.TabIndex = 5;
+            txtParameters.Text = "Default Params:";
             // 
             // formMainMenu
             // 
